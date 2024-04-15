@@ -64,7 +64,7 @@ drop-down selection in the top right corner. If not, you can also emulate a devi
 The minimum Android SDK is 24 but the target SDK is 34
 
 > You will need to enable Developer Settings on your device first to connect it to Android Studio. 
-> Follow Step 5 and 6 of this guide for more details: https://developer.android.com/codelabs/build-your-first-android-app#2
+> Follow Step 5 and 6 of [this guide](https://developer.android.com/codelabs/build-your-first-android-app#2) for more details
 
 Once the device is ready, run the application with the Run App button (the green "play" button in the
 top right). You can open the Running Devices tab in the right sidebar to view your device screen. You 
