@@ -5,11 +5,6 @@ package com.example.cis4520researchprojectphone.code.algorithms;
  */
 public interface Algorithm {
     /**
-     * For Manual one-time test - prompt user for parameter values for an algorithm
-     */
-    void getInputParams();
-
-    /**
      * Hash the password using the set parameter values
      * @return Hash of the plaintext password
      */

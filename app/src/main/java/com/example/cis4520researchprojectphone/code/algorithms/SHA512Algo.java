@@ -3,7 +3,6 @@ package com.example.cis4520researchprojectphone.code.algorithms;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Scanner;
 
 /**
  * SHA512 Class
@@ -14,16 +13,7 @@ public class SHA512Algo implements Algorithm {
     private String plaintextPassword = "";  // Plain text password input
     private int workFactor = 0;   // Work factor parameter input
 
-    // Prompts user for plain text password and work factor parameter
-    @Override
-    public void getInputParams() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter password to hash: ");
-        plaintextPassword = scanner.nextLine().strip();
-        System.out.println("Enter work factor: ");
-        workFactor = scanner.nextInt();
-    }
-
+    // Getters + Setters
     public String getPlaintextPassword() {
         return plaintextPassword;
     }
@@ -40,7 +30,7 @@ public class SHA512Algo implements Algorithm {
     /**
      * Hashes the password based on the work factor parameter
      * Number of iterations = 2^(work factor)
-     * @return String final output password hash
+     * @return byte[] of final output password hash
      */
     @Override
     public byte[] hashPassword() {
@@ -53,9 +43,9 @@ public class SHA512Algo implements Algorithm {
     }
 
     /**
-     * Performs one SHA-512 hashing operation on the password given
+     * Performs one SHA-512 hashing operation on the plaintext password
      * @param passwordToHash Password to be hashed
-     * @return String hash of password
+     * @return byte[] of hash of password
      */
     private byte[] generateHash(byte[] passwordToHash) {
         byte[] generatedPasswordHash = new byte[0];
@@ -63,8 +53,7 @@ public class SHA512Algo implements Algorithm {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
             generatedPasswordHash = md.digest(passwordToHash);
         } catch (NoSuchAlgorithmException e) {
-            // TODO: Better error handling
-            e.printStackTrace();
+            System.out.println("Error occurred when generating hash: " + e.getMessage());
         }
         return generatedPasswordHash;
     }

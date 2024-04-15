@@ -16,6 +16,9 @@ import com.example.cis4520researchprojectphone.databinding.ProjectDisplayFragmen
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * ProjectDisplayFragment - The UI logic for the project
+ */
 public class ProjectDisplayFragment extends Fragment {
 
     private ProjectDisplayFragmentBinding binding;
@@ -32,15 +35,18 @@ public class ProjectDisplayFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // SHA-512 button to generate parameter-cost comparison data
+        // Set onClickListener for SHA-512 button to generate parameter-cost comparison data
         binding.generateSha512Button.setOnClickListener(v -> {
+                // Show toast
                 Toast generateToast = Toast.makeText(getActivity(), "Generating SHA-512 Data...", Toast.LENGTH_LONG);
                 generateToast.show();
+                // Run tests
                 ResultGenerator resultGenerator = new ResultGenerator();
                 try {
                     File fileDir = requireActivity().getFilesDir();
                     System.out.println(fileDir.getPath());
                     resultGenerator.generateSHA512Results(fileDir);
+                    // Display success
                     binding.statusDisplay.setText("Generated SHA-512 data!");
                 } catch (IOException e) {
                     Log.e("FirstFragment:SHA512Button", "Error occurred when generating SHA-512 data", e);
@@ -48,15 +54,18 @@ public class ProjectDisplayFragment extends Fragment {
             }
         );
 
-        // BCrypt button to generate parameter-cost comparison data
+        // Set onClickListener for BCrypt button to generate parameter-cost comparison data
         binding.generateBcryptButton.setOnClickListener(v -> {
+                // Show toast
                 Toast generateToast = Toast.makeText(getActivity(), "Generating BCrypt Data...", Toast.LENGTH_LONG);
                 generateToast.show();
+                // Run tests
                 ResultGenerator resultGenerator = new ResultGenerator();
                 try {
                     File fileDir = requireActivity().getFilesDir();
                     System.out.println(fileDir.getPath());
                     resultGenerator.generateBCryptResults(fileDir);
+                    // Display success
                     binding.statusDisplay.setText("Generated BCrypt data!");
                 } catch (IOException e) {
                     Log.e("FirstFragment:BCryptButton", "Error occurred when generating Argon2id data", e);
@@ -64,15 +73,18 @@ public class ProjectDisplayFragment extends Fragment {
             }
         );
 
-        // Argon2id button to generate parameter-cost comparison data
+        // Set onClickListener for Argon2id button to generate parameter-cost comparison data
         binding.generateArgon2Button.setOnClickListener(v -> {
+                // Show toast
                 Toast generateToast = Toast.makeText(getActivity(), "Generating Argon2id Data...", Toast.LENGTH_LONG);
                 generateToast.show();
+                // Run tests
                 ResultGenerator resultGenerator = new ResultGenerator();
                 try {
                     File fileDir = requireActivity().getFilesDir();
                     System.out.println(fileDir.getPath());
                     resultGenerator.generateArgon2idResults(fileDir);
+                    // Display success
                     binding.statusDisplay.setText("Generated Argon2id data!");
                 } catch (IOException e) {
                     Log.e("FirstFragment:Argon2idButton", "Error occurred when generating Argon2id data", e);

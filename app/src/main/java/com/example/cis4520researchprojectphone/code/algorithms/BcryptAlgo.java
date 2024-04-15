@@ -13,15 +13,8 @@ public class BcryptAlgo implements Algorithm {
 
     private int workFactor = 0; // Work factor parameter input (4..31 inclusive)
     private byte[] salt; // Random 16-byte salt used for password
-    @Override
-    public void getInputParams() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter password to hash: ");
-        plaintextPassword = scanner.nextLine();
-        System.out.println("Enter work factor (4 to 31 inclusive): ");
-        workFactor = scanner.nextInt();
-    }
 
+    // Getters + Setters
     public String getPlaintextPassword() {
         return plaintextPassword;
     }
@@ -35,13 +28,16 @@ public class BcryptAlgo implements Algorithm {
         this.workFactor = workFactor;
     }
 
+    // Hash the plaintext password using BCrypt using work factor and random 16B salt
     @Override
     public byte[] hashPassword() {
+        // Convert String to byte[]
         byte[] byteInputPassword = BCrypt.passwordToByteArray(plaintextPassword.toCharArray());
         salt = generateSalt16Bytes();
         return BCrypt.generate(byteInputPassword, salt, workFactor);
     }
 
+    // Getter method for salt, converts byte[] to hex string
     public String getSaltAsHex() {
         return convertBytesToHex(salt);
     }
