@@ -16,7 +16,7 @@ import static com.example.cis4520researchprojectphone.code.Utils.convertBytesToH
 public class ResultGenerator {
     private final String plaintext = "password123";
     long startTime, endTime, duration;
-    final int MAX_DURATION = 200;
+    final int MAX_DURATION = 180000;
     byte[] hashedPassword;
     List<String[]> dataLines = new ArrayList<>();
     final String SHA512_CSV_FILE_NAME = "/sha512-results.csv";

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.cis4520researchprojectphone.FirstFragment"
+        android:name="com.example.cis4520researchprojectphone.ProjectDisplayFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first"/>
+        tools:layout="@layout/project_display_fragment"/>
 </navigation>

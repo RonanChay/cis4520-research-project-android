@@ -11,22 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.cis4520researchprojectphone.code.ResultGenerator;
-import com.example.cis4520researchprojectphone.databinding.FragmentFirstBinding;
+import com.example.cis4520researchprojectphone.databinding.ProjectDisplayFragmentBinding;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
-public class FirstFragment extends Fragment {
+public class ProjectDisplayFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private ProjectDisplayFragmentBinding binding;
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = ProjectDisplayFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
